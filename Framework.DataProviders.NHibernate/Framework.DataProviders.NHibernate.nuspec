@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Framework.DataProviders.NHibernate</id>
+    <authors>Eugeny Aleksandrovich</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Framework.DataProviders.NHibernate</description>
+    <version>1.0.5996.23902</version>
+    <dependencies xmlns="">
+      <dependency id="FluentNHibernate" version="2.0.3.0" />
+      <dependency id="Iesi.Collections" version="4.0.0.4000" />
+      <dependency id="NHibernate" version="4.0.4.4000" />
+      <dependency id="NLog" version="4.3.4" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Framework.DataProviders.NHibernate.dll" target="lib\Framework.DataProviders.NHibernate.dll" />
+    <file src="bin\Release\Framework.DataProviders.NHibernate.pdb" target="lib\Framework.DataProviders.NHibernate.pdb" />
+    <file src="bin\Release\Framework.Domain.dll" target="lib\Framework.Domain.dll" />
+    <file src="bin\Release\Framework.Domain.pdb" target="lib\Framework.Domain.pdb" />
+  </files>
+</package>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Framework.DataProviders.Redis</id>
+    <authors>Eugeny Aleksandrovich</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Framework.DataProviders.Redis</description>
+    <version>1.0.5996.22660</version>
+    <dependencies xmlns="">
+      <dependency id="StackExchange.Redis" version="1.1.603" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Framework.DataProviders.Redis.dll" target="lib\Framework.DataProviders.Redis.dll" />
+    <file src="bin\Release\Framework.DataProviders.Redis.pdb" target="lib\Framework.DataProviders.Redis.pdb" />
+  </files>
+</package>

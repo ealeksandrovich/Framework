@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Framework.Domain</id>
+    <authors>Eugeny Aleksandrovich</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Framework.Domain</description>
+    <version>1.0.5996.22671</version>
+  </metadata>
+  <files>
+    <file src="bin\Release\Framework.Domain.dll" target="lib\Framework.Domain.dll" />
+    <file src="bin\Release\Framework.Domain.pdb" target="lib\Framework.Domain.pdb" />
+  </files>
+</package>

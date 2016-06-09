@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Framework.DataProviders.AmazonS3</id>
+    <authors>Eugeny Aleksandrovich</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Framework.DataProviders.AmazonS3</description>
+    <version>1.0.5996.22660</version>
+  </metadata>
+  <files>
+    <file src="bin\Release\Framework.DataProviders.AmazonS3.dll" target="lib\Framework.DataProviders.AmazonS3.dll" />
+    <file src="bin\Release\Framework.DataProviders.AmazonS3.pdb" target="lib\Framework.DataProviders.AmazonS3.pdb" />
+  </files>
+</package>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PackageDir>$(MSBuildProjectDirectory)\Package</PackageDir>
+  </PropertyGroup>
+
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+  <Import Project="BuildDependencies.targets"/>
+
+  <Target Name="AfterBuild">
+    <CallTarget Targets="Prepare" Condition=" '$(Configuration)' =='Release'" />
+    <CallTarget Targets="Package" Condition=" '$(Configuration)' =='Release'"/>
+  </Target>
+
+  <Target Name="Prepare">
+    <Message Text = "Prepare..."/>
+    <BuildDependencies PackageConfigPath="$(MSBuildProjectDirectory)\packages.config" NuspecPath="$(MSBuildProjectDirectory)\$(AssemblyName).nuspec">
+    </BuildDependencies>
+    <Message  Text = "Preparation succeed"/>
+  </Target>
+
+  <Target Name="Package">
+    <GetAssemblyIdentity AssemblyFiles="$(OutputPath)$(AssemblyName).dll">
+      <Output TaskParameter="Assemblies" ItemName="OutputAssemblyInfo" />
+    </GetAssemblyIdentity>
+    <RemoveDir Directories="$(PackageDir)" />
+    <MakeDir Directories="$(PackageDir)" />
+
+    <XmlUpdate
+      Prefix="nu"
+      Namespace="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd"
+      XmlFileName="$(MSBuildProjectDirectory)\$(AssemblyName).nuspec"
+      XPath="/nu:package/nu:metadata/nu:version"
+      Value="%(OutputAssemblyInfo.Version)" />
+
+    <Exec WorkingDirectory="$(MSBuildThisFileDirectory)" Command="NuGet.exe pack -OutputDir &quot;$(PackageDir)&quot; $(MSBuildProjectDirectory)\$(AssemblyName).nuspec" />
+    <Exec WorkingDirectory="$(MSBuildThisFileDirectory)" Command="NuGet.exe push &quot;$(PackageDir)\$(AssemblyName).%(OutputAssemblyInfo.Version).nupkg&quot; -Source http://52.36.99.52:8088 -apikey 12345" />
+    <RemoveDir Directories="$(PackageDir)" />
+  </Target>
+
+</Project>

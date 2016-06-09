@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Framework.Utils.NLog</id>
+    <authors>Eugeny Aleksandrovich</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Framework.Utils.NLog</description>
+    <version>1.0.0.0</version>
+  </metadata>
+  <files>
+    <file src="bin\Release\Framework.Utils.NLog.dll" target="lib\Framework.Utils.NLog.dll" />
+    <file src="bin\Release\Framework.Utils.NLog.pdb" target="lib\Framework.Utils.NLog.pdb" />
+  </files>
+</package>

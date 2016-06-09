@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Framework.DataProviders.Cassandra</id>
+    <authors>Eugeny Aleksandrovich</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Framework.DataProviders.Cassandra</description>
+    <version>1.0.5996.22659</version>
+    <dependencies xmlns="">
+      <dependency id="CassandraCSharpDriver" version="3.0.6" />
+      <dependency id="lz4net" version="1.0.5.93" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Framework.DataProviders.Cassandra.dll" target="lib\Framework.DataProviders.Cassandra.dll" />
+    <file src="bin\Release\Framework.DataProviders.Cassandra.pdb" target="lib\Framework.DataProviders.Cassandra.pdb" />
+  </files>
+</package>

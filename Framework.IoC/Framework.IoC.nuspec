@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Framework.IoC</id>
+    <authors>Eugeny Aleksandrovich</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Framework.IoC</description>
+    <version>1.0.5996.22659</version>
+    <dependencies xmlns="">
+      <dependency id="SimpleInjector" version="3.1.5" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Framework.IoC.dll" target="lib\Framework.IoC.dll" />
+    <file src="bin\Release\Framework.IoC.pdb" target="lib\Framework.IoC.pdb" />
+  </files>
+</package>

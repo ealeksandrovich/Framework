@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask TaskName="BuildDependencies" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+    <ParameterGroup>
+      <PackageConfigPath ParameterType="System.String" Required="true" />
+      <NuspecPath ParameterType="System.String" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Reference Include="System.Xml" />
+      <Reference Include="System.Xml.Linq"/>
+      <Using Namespace="System" />
+      <Using Namespace="System.Collections.Generic" />
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.Linq" />
+      <Using Namespace="System.Xml.Linq" />
+      <Code Type="Fragment" Language="cs">
+        <![CDATA[
+            try{
+			if (!File.Exists(PackageConfigPath))
+            {
+				return true;
+			}
+            var xml = XDocument.Load(PackageConfigPath);
+              
+            if (xml.Root == null)
+            {
+                throw new Exception("no config path");
+            }
+            var nuspec = XDocument.Load(NuspecPath);
+            if (nuspec.Root == null)
+            {
+                throw new Exception("no nuspec path");
+            }
+
+            var packages = xml.Root.Descendants("package");
+            IDictionary<string, string> libVersions = new Dictionary<string, string>();
+
+            foreach (var pack in packages)
+            {
+                libVersions.Add(pack.Attribute("id").Value, pack.Attribute("version").Value);
+            }
+
+            var namesp = nuspec.Root.GetDefaultNamespace().NamespaceName;
+            var metadata = nuspec.Root.Descendants(XName.Get("metadata", namesp)).First();
+            var dep = metadata.Descendants("dependencies").FirstOrDefault();
+            if (dep != null)
+            {
+                dep.Remove();
+            }
+
+            var dependencies = new XElement("dependencies");
+            foreach (var libVersion in libVersions)
+            {
+                dependencies.Add(new XElement("dependency", new XAttribute("id", libVersion.Key), new XAttribute("version", libVersion.Value)));
+            }
+            metadata.Add(dependencies);
+            nuspec.Save(NuspecPath);
+             }
+           catch(Exception ex)
+           {
+             throw new Exception(string.Format("Exception inside: {0}",ex));
+           }
+      ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+</Project>
