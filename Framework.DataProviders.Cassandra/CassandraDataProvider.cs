@@ -26,7 +26,11 @@
                 MappingConfiguration.Global.Define(mappings.ToArray());
             }
 
-            Session = cluster.Connect(keyspace.ToLower());
+            Session = cluster.Connect();
+
+            var keyspaceName = keyspace.ToLower();
+            Session.CreateKeyspaceIfNotExists(keyspaceName);
+            Session.ChangeKeyspace(keyspaceName);
         }
     }
 }

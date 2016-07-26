@@ -15,7 +15,6 @@
         {
             //NOTE http://stackoverflow.com/questions/18724334/cant-connect-to-cassandra-nohostavailableexception
             //NOTE https://www.youtube.com/watch?v=fspXzjwfii0
-            //TODO create "CassandraTest"  key space first of all using the following command: create keyspace "CassandraTest" with replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
             this.provider = new CassandraDataProvider("52.36.99.52", "CassandraTest", new List<Mappings> { new MyMappings() });
         }
 
