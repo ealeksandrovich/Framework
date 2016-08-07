@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Framework.DataProviders.MongoDB</id>
+    <authors>Eugeny Aleksandrovich</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Framework.DataProviders.MongoDB</description>
+    <version>1.0.6063.19039</version>
+    <dependencies xmlns="">
+      <dependency id="MongoDB.Bson" version="2.2.4" />
+      <dependency id="MongoDB.Driver" version="2.2.4" />
+      <dependency id="MongoDB.Driver.Core" version="2.2.4" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Framework.DataProviders.MongoDB.dll" target="lib\Framework.DataProviders.MongoDB.dll" />
+    <file src="bin\Release\Framework.DataProviders.MongoDB.pdb" target="lib\Framework.DataProviders.MongoDB.pdb" />
+  </files>
+</package>

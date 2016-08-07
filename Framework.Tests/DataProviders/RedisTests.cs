@@ -4,6 +4,7 @@
     using NUnit.Framework;
     using StackExchange.Redis;
 
+    //https://github.com/MSOpenTech/redis/releases
     [TestFixture]
     public class RedisTests
     {
