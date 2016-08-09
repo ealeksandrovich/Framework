@@ -9,6 +9,9 @@
 
     public class KafkaBootstrapper
     {
+        /// <summary>
+        /// http://stackoverflow.com/questions/154551/volatile-vs-interlocked-vs-lock
+        /// </summary>
         private static volatile KafkaBootstrapper instance;
 
         private static readonly object SyncRoot = new object();
@@ -49,7 +52,6 @@
                             instance = new KafkaBootstrapper();
                             instance.Init();
                         }
-
                     }
                 }
 
