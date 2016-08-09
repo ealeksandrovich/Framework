@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Framework.Utils.Kafka</id>
+    <version>1.0.6065.21852</version>
+    <authors>Eugeny Aleksandrovich</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Framework.Utils.Kafka</description>
+    <dependencies xmlns="">
+      <dependency id="kafka-net" version="0.9.0.65" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Framework.Utils.Kafka.dll" target="lib\Framework.Utils.Kafka.dll" />
+  </files>
+</package>

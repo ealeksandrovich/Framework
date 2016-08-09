@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{10727FFE-F268-4D8B-8FD9-842A9BF890C1}</ProjectGuid>
+    <ProjectGuid>{2AD76CAF-6C58-4D5C-9842-42E4EE2BD75D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Framework.Utils.NLog</RootNamespace>
-    <AssemblyName>Framework.Utils.NLog</AssemblyName>
+    <RootNamespace>Framework.Utils.Kafka</RootNamespace>
+    <AssemblyName>Framework.Utils.Kafka</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,19 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Elasticsearch.Net, Version=2.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
-      <HintPath>..\packages\Elasticsearch.Net.2.3.2\lib\net46\Elasticsearch.Net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="kafka-net, Version=0.9.0.65, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\kafka-net.0.9.0.65\lib\net45\kafka-net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.3.4\lib\net45\NLog.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,23 +45,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\BrokerElement.cs" />
+    <Compile Include="Configuration\BrokersCollection.cs" />
+    <Compile Include="Configuration\ConsumerElement.cs" />
+    <Compile Include="Configuration\ConsumersCollection.cs" />
+    <Compile Include="Configuration\KafkaConfigurationSection.cs" />
+    <Compile Include="Configuration\ProducerElement.cs" />
+    <Compile Include="KafkaBootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Targets\ElasticSearch\ElasticField.cs" />
-    <Compile Include="Targets\ElasticSearch\ElasticSearchTarget.cs" />
-    <Compile Include="Targets\Kafka\KafkaTarget.cs" />
-    <None Include="Targets\ElasticSearch\Readme.md" />
-    <Compile Include="Targets\ElasticSearch\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Framework.Utils.Kafka\Framework.Utils.Kafka.csproj">
-      <Project>{2ad76caf-6c58-4d5c-9842-42e4ee2bd75d}</Project>
-      <Name>Framework.Utils.Kafka</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\Automation\Nuget\NuGetPublish.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

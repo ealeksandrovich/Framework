@@ -58,6 +58,10 @@
       <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="kafka-net, Version=0.9.0.65, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\kafka-net.0.9.0.65\lib\net45\kafka-net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="LZ4, Version=1.0.5.93, Culture=neutral, PublicKeyToken=fd2bda0a70c5a705, processorArchitecture=MSIL">
       <HintPath>..\packages\lz4net.1.0.5.93\lib\net40-client\LZ4.dll</HintPath>
       <Private>True</Private>
@@ -143,6 +147,10 @@
     <ProjectReference Include="..\Framework.IoC\Framework.IoC.csproj">
       <Project>{88f550f3-308b-44ca-b47c-e3cacb6aca53}</Project>
       <Name>Framework.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Utils.Kafka\Framework.Utils.Kafka.csproj">
+      <Project>{2ad76caf-6c58-4d5c-9842-42e4ee2bd75d}</Project>
+      <Name>Framework.Utils.Kafka</Name>
     </ProjectReference>
     <ProjectReference Include="..\Framework.Utils.NLog\Framework.Utils.NLog.csproj">
       <Project>{10727ffe-f268-4d8b-8fd9-842a9bf890c1}</Project>

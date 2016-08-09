@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.WebApi", "Framewo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.DataProviders.MongoDB", "Framework.DataProviders.MongoDB\Framework.DataProviders.MongoDB.csproj", "{E6FC2DFE-B0C8-4FEC-9C71-37CACE472CF5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Utils.Kafka", "Framework.Utils.Kafka\Framework.Utils.Kafka.csproj", "{2AD76CAF-6C58-4D5C-9842-42E4EE2BD75D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +80,10 @@ Global
 		{E6FC2DFE-B0C8-4FEC-9C71-37CACE472CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6FC2DFE-B0C8-4FEC-9C71-37CACE472CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6FC2DFE-B0C8-4FEC-9C71-37CACE472CF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AD76CAF-6C58-4D5C-9842-42E4EE2BD75D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AD76CAF-6C58-4D5C-9842-42E4EE2BD75D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AD76CAF-6C58-4D5C-9842-42E4EE2BD75D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AD76CAF-6C58-4D5C-9842-42E4EE2BD75D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
