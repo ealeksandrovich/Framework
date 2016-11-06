@@ -34,6 +34,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.DataProviders.Mon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Utils.Kafka", "Framework.Utils.Kafka\Framework.Utils.Kafka.csproj", "{2AD76CAF-6C58-4D5C-9842-42E4EE2BD75D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.DataProviders.Aerospike", "Framework.DataProviders.Aerospike\Framework.DataProviders.Aerospike.csproj", "{AC2BF716-8840-48CD-8084-C83BD86189FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,6 +86,10 @@ Global
 		{2AD76CAF-6C58-4D5C-9842-42E4EE2BD75D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AD76CAF-6C58-4D5C-9842-42E4EE2BD75D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AD76CAF-6C58-4D5C-9842-42E4EE2BD75D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC2BF716-8840-48CD-8084-C83BD86189FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC2BF716-8840-48CD-8084-C83BD86189FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC2BF716-8840-48CD-8084-C83BD86189FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC2BF716-8840-48CD-8084-C83BD86189FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
