@@ -5,7 +5,7 @@
     <authors>Eugeny Aleksandrovich</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Framework.Domain</description>
-    <version>1.0.6164.20136</version>
+    <version>1.0.6164.35936</version>
   </metadata>
   <files>
     <file src="bin\Release\Framework.Domain.dll" target="lib\Framework.Domain.dll" />

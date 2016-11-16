@@ -1,5 +1,6 @@
 ﻿namespace Framework.WebApi.Auth.JWT
 {
+    using System.IdentityModel.Claims;
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.Owin.Security.OAuth;
@@ -12,7 +13,7 @@
         public override Task ValidateIdentity(OAuthValidateIdentityContext context)
         {
             var identity = context.Ticket?.Identity;
-            var userIdClaim = identity?.Claims.FirstOrDefault(x => x.Type == "sub");
+            var userIdClaim = identity?.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
             if (userIdClaim == null)
             {
                 context.Rejected();

@@ -22,6 +22,7 @@
             appBuilder.UseCors(CorsOptions.AllowAll);
             appBuilder.UseRequestScopeContext();
 
+
             var httpConfig = new HttpConfiguration();
 
             //https://github.com/domaindrivendev/Swashbuckle
@@ -29,12 +30,11 @@
 
             httpConfig.MapHttpAttributeRoutes();
 
-
             httpConfig.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{action}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-                );
+                 name: "DefaultApi",
+                 routeTemplate: "api/{controller}/{action}/{id}",
+                 defaults: new { id = RouteParameter.Optional }
+                 );
 
             //httpConfig.MessageHandlers.Add(new BasicAuthHandler());
 
@@ -42,8 +42,6 @@
             // http://bitoftech.net/2014/10/27/json-web-token-asp-net-web-api-2-jwt-owin-authorization-server/
             //var jwtIssuer = "http://localhost";
             //var jwtSecret = "IxrAjDoa2FqElO7IhrSrUJELhUckePEPVpaePlS_Xaw";
-
-
             appBuilder.UseOAuthAuthorizationServer(new OAuthAuthorizationServerOptions
             {
                 AllowInsecureHttp = true,

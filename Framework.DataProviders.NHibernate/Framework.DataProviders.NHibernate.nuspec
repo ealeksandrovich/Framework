@@ -5,12 +5,13 @@
     <authors>Eugeny Aleksandrovich</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Framework.DataProviders.NHibernate</description>
-    <version>1.0.5996.23902</version>
+    <version>1.0.6164.36169</version>
     <dependencies xmlns="">
       <dependency id="FluentNHibernate" version="2.0.3.0" />
+      <dependency id="Framework.Domain" version="1.0.6164.35936" />
       <dependency id="Iesi.Collections" version="4.0.0.4000" />
       <dependency id="NHibernate" version="4.0.4.4000" />
-      <dependency id="NLog" version="4.3.4" />
+      <dependency id="NLog" version="4.3.11" />
     </dependencies>
   </metadata>
   <files>

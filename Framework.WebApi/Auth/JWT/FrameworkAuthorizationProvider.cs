@@ -1,6 +1,8 @@
 ﻿namespace Framework.WebApi.Auth.JWT
 {
+    using System;
     using System.Collections.Generic;
+    using System.IdentityModel.Tokens;
     using System.Linq;
     using System.Security.Claims;
     using System.Threading.Tasks;
@@ -10,8 +12,21 @@
 
     public class FrameworkAuthorizationProvider: OAuthAuthorizationServerProvider
     {
+        public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
+        {
+            // Resource owner password credentials does not provide a client ID.
+            if (context.ClientId == null)
+            {
+                context.Validated();
+            }
+
+            return Task.FromResult<object>(null);
+        }
+
         public override Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+
             //validate user and password
             //var isValid = userService.ValidateCredentials(context.UserName, context.Password);
             //if (!isValid)
@@ -21,7 +36,11 @@
             //}
 
             //var user = userService.GetByEmail(context.UserName);
-            var user = new UserEntity();
+            var user = new UserEntity
+            {
+                Id = Guid.NewGuid(),
+                Email = "test@test.com"
+            };
 
             var ticket = CreateAuthTicket(user);
             context.Validated(ticket);
@@ -31,7 +50,7 @@
 
         public override Task GrantRefreshToken(OAuthGrantRefreshTokenContext context)
         {
-            var userIdClaim = context.Ticket.Identity.Claims.FirstOrDefault(i => i.Type == "sub");
+            var userIdClaim = context.Ticket.Identity.Claims.FirstOrDefault(i => i.Type == JwtRegisteredClaimNames.Sub);
             long userId;
             if (userIdClaim == null || !long.TryParse(userIdClaim.Value, out userId))
             {
@@ -47,22 +66,18 @@
             //    return Task.FromResult<object>(null);
             //}
 
-            var ticket = CreateAuthTicket(new UserEntity());
+            var user = new UserEntity
+            {
+                Id = Guid.NewGuid(),
+                Email = "test@test.com"
+            };
+
+            var ticket = CreateAuthTicket(user);
             context.Validated(ticket);
 
             return Task.FromResult<object>(null);
         }
-
-        public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
-        {
-            // Resource owner password credentials does not provide a client ID.
-            if (context.ClientId == null)
-            {
-                context.Validated();
-            }
-
-            return Task.FromResult<object>(null);
-        }
+        
 
         /// <summary>
         /// Creates authentication ticket.
@@ -78,8 +93,8 @@
         {
             var identity = new ClaimsIdentity("JWT");
 
+            identity.AddClaim(new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()));
             identity.AddClaim(new Claim(ClaimTypes.Name, user.Email));
-            identity.AddClaim(new Claim("sub", user.Id.ToString()));
             identity.AddClaim(new Claim(ClaimTypes.Role, "Admin"));
 
             var properties = new AuthenticationProperties(new Dictionary<string, string>
