@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entitities\EntityBase.cs" />
+    <Compile Include="Entitities\UserEntity.cs" />
     <Compile Include="Enums\OrderDirection.cs" />
     <Compile Include="Filters\FilterBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

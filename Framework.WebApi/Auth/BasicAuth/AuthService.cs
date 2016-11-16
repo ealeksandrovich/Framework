@@ -1,4 +1,4 @@
-﻿namespace Framework.WebApi.Auth
+﻿namespace Framework.WebApi.Auth.BasicAuth
 {
     using System;
     using System.Security.Claims;
